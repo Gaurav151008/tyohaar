@@ -1,0 +1,39 @@
+image container size should be same for every image
+< > icon for mobile view
+edit navbar
+no option of cart and whishlist for admin
+blogs
+contact us
+footer
+small icons for category or only names should be display while opening category
+wishlist option remove or edit
+without login not to be add cart
+
+const getSessionId = (e) =>{
+    e.preventDefault();
+    setLoading(true);
+    axios.post(`${apiURL}/api/payment`,{version}).then((res) => {
+      setLoading(false);
+      setSessionId(res.data);
+
+    }).catch((err)=>{
+      setLoading(false);
+      console.log(err);
+    })
+  }
+
+  const handlePayment = () =>{
+    let checkoutOptions = {
+      paymentSessionId: "payment-session-id",
+      returnUrl: "https://test.cashfree.com/pgappsdemos/v3success.php?myorder={order_id}",
+      
+    }
+    cashfree.checkout(checkoutOptions).then(function(result){
+      if(result.error){
+        alert(result.error.message)
+      }
+      if(result.redirect){
+        console.log("Redirection")
+      }
+    });
+  }
