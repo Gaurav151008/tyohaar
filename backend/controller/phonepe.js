@@ -13,7 +13,7 @@ class phonepeController {
   async getOrderId(req,res){
     console.log("hit2");
     try{  
-      var instance = new Razorpay({ key_id: "rzp_test_LB72bLbEb4h31b", key_secret: "wzgB92BVBsWmBHLwkb1bYQKi" })
+      var instance = new Razorpay({ key_id: process.env.CLIENT_ID, key_secret: process.env.SECRET_KEY })
 
       var options = {
         "amount": req.body.amount * 100,
@@ -51,7 +51,7 @@ class phonepeController {
     
     try{
       const string = `${razorpay_order_id} | ${razorpay_payment_id}`;
-      const generated_signature = crypto.createHmac('sha256',"wzgB92BVBsWmBHLwkb1bYQKi").update(string).digest('hex');
+      const generated_signature = crypto.createHmac('sha256',process.env.SECRET_KEY).update(string).digest('hex');
       
       console.log(generated_signature);
       if(generated_signature == razorpay_signature){

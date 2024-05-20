@@ -65,31 +65,6 @@ export const CheckoutComponent = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // const getSessionId = () =>{
-  //   // e.preventDefault();
-  //   // setLoading(true);
-  //   axios.post(`${apiURL}/api/cashfree/payment`).then((res) => {
-  //     // setLoading(false);
-  //     setSessionId(res.data);
-
-  //   }).catch((err)=>{
-  //     // setLoading(false);
-  //     console.log(err);
-  //   })
-  // }
-
-
-  // const payNow = (data,dispatch,state,setState) =>{
-  //   axios.post(`${apiURL}/api/phonepe/payment`).then((res) => {
-  //     console.log("nh1");
-  //     // setLoading(false);
-  //     setSessionId(res.data);
-
-  //   }).catch((err)=>{
-  //     // setLoading(false);
-  //     console.log(err);
-  //   })
-  // }
 
   if (data.loading) {
     return (
