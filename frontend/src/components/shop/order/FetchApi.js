@@ -1,6 +1,6 @@
 // FetchApi.js
 import axios from "axios";
-import { subTotal, quantity, totalCost } from "../partials/Mixins";
+import { totalCost } from "../partials/Mixins";
 const apiURL = "http://localhost:8000";
 
 export const fetchCashfreeToken = async (setState) => {

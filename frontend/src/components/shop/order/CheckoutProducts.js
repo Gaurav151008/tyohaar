@@ -5,7 +5,7 @@ import { subTotal, quantity, totalCost } from "../partials/Mixins";
 // import cashfree from './utils';
 // import initializeCashfree from './utils';
 import { cartListProduct } from "../partials/FetchApi";
-import { fetchData, pay } from "./Action";
+import { fetchData } from "./Action";
 // import { fetchCashfreeToken, initiatePayment } from "./FetchApi";
 import axios from "axios";
 // import {load} from '@cashfreepayments/cashfree-js';
@@ -15,7 +15,7 @@ import axios from "axios";
 const apiURL = "http://localhost:8000";
 
 export const CheckoutComponent = (props) => {
-  const history = useHistory();
+  // const history = useHistory();
   const { data, dispatch } = useContext(LayoutContext);
   const [ loading, setLoading ] = useState(true);
   const [ orderId, setOrderId ] = useState('');
