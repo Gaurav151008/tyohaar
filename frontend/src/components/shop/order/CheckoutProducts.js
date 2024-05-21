@@ -45,7 +45,7 @@ export const CheckoutComponent = (props) => {
     console.log("hit1");
     axios.post(`${apiURL}/api/phonepe/order`,{...data2}).then(res => {
       setTimeout(()=>{
-
+        console.log(loading);
         setLoading(false);
         setOrderId(res.data);
         console.log(res.data);
