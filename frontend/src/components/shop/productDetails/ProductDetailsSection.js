@@ -114,7 +114,7 @@ const ProductDetailsSection = (props) => {
                 count === index ? "" : "opacity-25"
               } cursor-pointer w-20 h-20 object-cover object-center`}
               src={`${apiURL}/uploads/products/${image}`}
-              alt={`Product Image ${index + 1}`}
+              alt={`Product ${index + 1}`}
             />
           ))}
             {/* <img
