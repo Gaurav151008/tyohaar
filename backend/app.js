@@ -21,7 +21,7 @@ const CreateAllFolder = require("./config/uploadFolderCreateScript");
 const cors = require('cors');
 
 app.use(cors({
-    origin: 'https://664dc7bc634e2bd55b7a7d03--tyohaar.netlify.app', // Replace with your Netlify app URL
+    origin: '*', // Replace with your Netlify app URL
     credentials: true // Required for sending cookies across origins (if applicable)
 }));
 
