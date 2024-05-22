@@ -1,7 +1,7 @@
 // FetchApi.js
 import axios from "axios";
 import { totalCost } from "../partials/Mixins";
-const apiURL = "http://localhost:8000";
+const apiURL = "https://tyohaar.onrender.com";
 
 export const fetchCashfreeToken = async (setState) => {
   try {

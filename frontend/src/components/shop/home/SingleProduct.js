@@ -4,7 +4,7 @@ import { getAllProduct } from "../../admin/products/FetchApi";
 import { HomeContext } from "./index";
 import { isWishReq, unWishReq, isWish } from "./Mixins";
 
-const apiURL = "http://localhost:8000";
+const apiURL = "https://tyohaar.onrender.com";
 
 const SingleProduct = (props) => {
   const { data, dispatch } = useContext(HomeContext);

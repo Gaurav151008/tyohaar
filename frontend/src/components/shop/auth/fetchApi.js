@@ -11,7 +11,7 @@ export const isAdmin = () =>
 export const loginReq = async ({ email, password }) => {
   const data = { email, password };
   try {
-    let res = await axios.post(`http://localhost:8000/api/signin`, data);
+    let res = await axios.post(`https://tyohaar.onrender.com/api/signin`, data);
     return res.data;
   } catch (error) {
     console.log(error);
@@ -21,7 +21,7 @@ export const loginReq = async ({ email, password }) => {
 export const signupReq = async ({ name, email, password, cPassword }) => {
   const data = { name, email, password, cPassword };
   try {
-    let res = await axios.post('http://localhost:8000/api/signup', data);
+    let res = await axios.post('https://tyohaar.onrender.com/api/signup', data);
     return res.data;
   } catch (error) {
     console.log(error);

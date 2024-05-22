@@ -12,7 +12,7 @@ import axios from "axios";
 
 // import DropIn from "braintree-web-drop-in-react";
 
-const apiURL = "http://localhost:8000";
+const apiURL = "https://tyohaar.onrender.com";
 
 export const CheckoutComponent = (props) => {
   // const history = useHistory();

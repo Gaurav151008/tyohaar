@@ -4,7 +4,7 @@ import { HomeContext } from "./";
 import { sliderImages } from "../../admin/dashboardAdmin/Action";
 // import { prevSlide, nextSlide } from "./Mixins";
 
-const apiURL = "http://localhost:8000";
+const apiURL = "https://tyohaar.onrender.com";
 
 const Slider = (props) => {
   const { data, dispatch } = useContext(HomeContext);
