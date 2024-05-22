@@ -21,7 +21,7 @@ const CreateAllFolder = require("./config/uploadFolderCreateScript");
 const cors = require('cors');
 
 app.use(cors({
-    origin: '*', // Replace with your Netlify app URL
+    origin: 'https://664dc7bc634e2bd55b7a7d03--tyohaar.netlify.app', // Replace with your Netlify app URL
     credentials: true // Required for sending cookies across origins (if applicable)
 }));
 
@@ -30,7 +30,7 @@ CreateAllFolder();
 
 // Database Connection
 mongoose
-  .connect(process.env.DATABASE, {
+  .connect("mongodb+srv://tyohaar:tyohaar#8484@eccluster.dbzbz7o.mongodb.net/?retryWrites=true&w=majority&appName=eccluster", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
