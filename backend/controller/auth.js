@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = require("../config/keys");
 
 class Auth {
+  @Crossorigin
   async isAdmin(req, res) {
     let { loggedInUserId } = req.body;
     try {
@@ -15,6 +16,7 @@ class Auth {
     }
   }
 
+  
   async allUser(req, res) {
     try {
       let allUser = await userModel.find({});
@@ -25,6 +27,7 @@ class Auth {
   }
 
   /* User Registration/Signup controller  */
+  @Crossorigin
   async postSignup(req, res) {
     let { name, email, password, cPassword } = req.body;
     let error = {};
@@ -101,6 +104,7 @@ class Auth {
   }
 
   /* User Login/Signin controller  */
+  @Crossorigin
   async postSignin(req, res) {
     let { email, password } = req.body;
     if (!email || !password) {
