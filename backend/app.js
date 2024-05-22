@@ -28,13 +28,14 @@ mongoose
   .connect(process.env.DATABASE, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-  })
-  .then(() =>
-    console.log(
-      "==============Mongodb Database Connected Successfully=============="
-    )
-  )
-  .catch((err) => console.log(err));
+  });
+  mongoose.connection.on("connected", () => {
+    console.log("Database Connected Successfully");
+  });
+  
+  mongoose.connection.on("error", (err) => {
+    console.error("Database Connection Error:", err);
+  });
 
 // Middleware
 app.use(morgan("dev"));
