@@ -3,7 +3,7 @@ import { getAllProduct, deleteProduct } from "./FetchApi";
 import moment from "moment";
 import { ProductContext } from "./index";
 
-const apiURL = "http://localhost:8000";
+const apiURL = "https://tyohaar.onrender.com";
 
 const AllProduct = (props) => {
   const { data, dispatch } = useContext(ProductContext);

@@ -3,7 +3,7 @@ import { getAllCategory, deleteCategory } from "./FetchApi";
 import { CategoryContext } from "./index";
 import moment from "moment";
 
-const apiURL = "http://localhost:8000";
+const apiURL = "https://tyohaar.onrender.com";
 
 const AllCategory = (props) => {
   const { data, dispatch } = useContext(CategoryContext);
