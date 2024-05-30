@@ -30,7 +30,7 @@ CreateAllFolder();
 
 // Database Connection
 mongoose
-  .connect("mongodb+srv://tyohaar:tyohaar#8484@eccluster.dbzbz7o.mongodb.net/?retryWrites=true&w=majority&appName=eccluster", {
+  .connect("mongodb+srv://ecuser:ec123@eccluster.dbzbz7o.mongodb.net/?retryWrites=true&w=majority&appName=eccluster", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
