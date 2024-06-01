@@ -29,10 +29,9 @@ app.use(cors({
 CreateAllFolder();
 
 // Database Connection
-mongoose
-  .connect("mongodb+srv://ecuser:ec123@eccluster.dbzbz7o.mongodb.net/?retryWrites=true&w=majority&appName=eccluster", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+  mongoose.connect("mongodb+srv://ecuser:ec123@eccluster.dbzbz7o.mongodb.net/ecommerce?retryWrites=true&w=majority&appName=eccluster", {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
   });
   mongoose.connection.on("connected", () => {
     console.log("Database Connected Successfully");
