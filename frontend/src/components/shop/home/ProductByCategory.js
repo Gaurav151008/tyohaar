@@ -3,7 +3,7 @@ import { useHistory, useParams } from "react-router-dom";
 import Layout from "../layout";
 import { productByCategory } from "../../admin/products/FetchApi";
 
-const apiURL = "http://localhost:8000";
+const apiURL = "https://tyohaar.onrender.com/";
 
 const Submenu = ({ category }) => {
   const history = useHistory();
