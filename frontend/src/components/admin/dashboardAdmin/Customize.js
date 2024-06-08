@@ -169,7 +169,7 @@ const AllImages = () => {
               <div key={index} className="relative col-span-1 m-2 border">
                 <img
                   className="w-full md:h-32 object-center object-cover"
-                  src={`http://localhost:8000/uploads/customize/${item.slideImage}`}
+                  src={`https://tyohaar.onrender.com/uploads/customize/${item.slideImage}`}
                   alt="sliderImages2"
                 />
                 <span

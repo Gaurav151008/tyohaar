@@ -1,5 +1,5 @@
 import axios from "axios";
-const apiURL = "http://localhost:8000";
+const apiURL = "https://tyohaar.onrender.com";
 
 export const getUserById = async (uId) => {
   try {
