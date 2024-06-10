@@ -1,11 +1,10 @@
-
-
 const express = require("express");
 const app = express();
 require("dotenv").config();
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
+const cors = require('cors');
 
 // Import Router
 const authRouter = require("./routes/auth");
@@ -15,32 +14,25 @@ const phonepe = require("./routes/phonepe");
 const orderRouter = require("./routes/orders");
 const usersRouter = require("./routes/users");
 const customizeRouter = require("./routes/customize");
+
 // Import Auth middleware for check user login or not~
 const { loginCheck } = require("./middleware/auth");
 const CreateAllFolder = require("./config/uploadFolderCreateScript");
-const cors = require('cors');
 
-app.use(cors({
-    origin: 'https://6664baeb28a7e0240946b426--tyohaar.netlify.app/', // Replace with your Netlify app URL
-    methods: 'GET,POST,PUT,DELETE',
-    credentials: true // Required for sending cookies across origins (if applicable)
-}));
-
-/* Create All Uploads Folder if not exists | For Uploading Images */
+// Create All Uploads Folder if not exists | For Uploading Images
 CreateAllFolder();
 
 // Database Connection
-  mongoose.connect("mongodb+srv://ecuser:ec123@eccluster.dbzbz7o.mongodb.net/ecommerce?retryWrites=true&w=majority&appName=eccluster", {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-  });
-  mongoose.connection.on("connected", () => {
-    console.log("Database Connected Successfully");
-  });
-  
-  mongoose.connection.on("error", (err) => {
-    console.error("Database Connection Error:", err);
-  });
+mongoose.connect("mongodb+srv://ecuser:ec123@eccluster.dbzbz7o.mongodb.net/ecommerce?retryWrites=true&w=majority&appName=eccluster", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
+mongoose.connection.on("connected", () => {
+  console.log("Database Connected Successfully");
+});
+mongoose.connection.on("error", (err) => {
+  console.error("Database Connection Error:", err);
+});
 
 // Middleware
 app.use(morgan("dev"));
@@ -48,6 +40,26 @@ app.use(cookieParser());
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+// CORS configuration
+const allowedOrigins = [
+  'https://tyohaar.netlify.app',
+  'https://6664baeb28a7e0240946b426--tyohaar.netlify.app'
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps, curl requests)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
+  methods: 'GET,POST,PUT,DELETE',
+  credentials: true // Required for sending cookies across origins (if applicable)
+}));
 
 // Routes
 app.use("/api", authRouter);
